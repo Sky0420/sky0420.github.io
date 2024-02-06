@@ -1,6 +1,4 @@
-# Front-end Student
-
-Korean front-end student
+# Korean Front-end Student
 
 Started study at 24-02-01
 
