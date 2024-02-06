@@ -1,7 +1,7 @@
 # Korean Front-end Student
 
-Started study at 24-02-01
+Started study at 01-02-2024
 
-Studying HTML, CSS from 24-02-01 to ~
+Studying HTML, CSS from 01.02.2024
 
-Goal (24-02-06) : Study HTML, CSS, JS
+Goal (06.02.2024) : Study HTML, CSS, JS
