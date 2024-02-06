@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- 네비게이션 바 -->
+    <div class="nav text-right float-left h-100vh">
+        <ul class="color-white">
+            <li>
+                <a href="#">
+                    <span class="navbar-span">Home</span>
+                    <i class="navbar-icon fa-solid fa-house-chimney"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navbar-span">Services</span>
+                    <i class="navbar-icon fa-solid fa-headset"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navbar-span">Alerts</span>
+                    <i class="navbar-icon fa-solid fa-flag"></i>
+                </a>
+                </li>
+            <li>
+                <a href="#">
+                    <span class="navbar-span">Stats</span>
+                    <i class="navbar-icon fa-solid fa-chart-simple"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 네비게이션 바 -->
+
+
+
+
+    <!-- 전체 컨텐츠 -->
+    <div class="container float-left h-100vh">
+
+
+        <!-- 헤더 -->
+        <div class="header d-flex justify-content-center align-items-center">
+            <div class="search flex-grow-1">
+                <input class="p-1" type="text" placeholder="Search"><button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="notice ps-3"><a href="#"><i class="fa-solid fa-bell"></i></a></div>
+            <div class="mail ps-3"><a href="#"><i class="fa-solid fa-envelope"></i></a></div>
+            <div class="name ps-3"><a href="#">Name</a></div>
+        </div>
+        <!-- 헤더 -->
+
+
+        <!-- 컨텐츠 영역 -->
+        <div class="content">
+
+
+            <!-- 카드 영역 -->
+            <h3>Dashboard</h3>
+            <div class="d-flex justify-content-center align-items-center gap">
+                <div class="card d-flex card-border-1 box-shadow">
+                    <div class="text p-2 flex-grow-2">
+                        Earnings (Montly)<br><br>
+                        <span style="font-weight: 600;">$400,000</span>
+                    </div>
+                    <div class="icon d-flex justify-content-center align-items-center flex-grow-1"><i class="fa-solid fa-calendar fa-3x text-center"></i></div>
+                </div>
+                <div class="card d-flex card-border-2 box-shadow">
+                    <div class="text p-2 flex-grow-2">
+                        Earnings (annual)<br><br>
+                        <span style="font-weight: 600;">$400,000</span>
+                    </div>
+                    <div class="icon d-flex justify-content-center align-items-center flex-grow-1"><i class="fa-solid fa-dollar-sign fa-3x text-center"></i></div>
+                </div>
+                <div class="card d-flex card-border-3 box-shadow">
+                    <div class="text p-2 flex-grow-2">
+                        Tasks<br><br>
+                        <span style="font-weight: 600;">13</span>
+                    </div>
+                    <div class="icon d-flex justify-content-center align-items-center flex-grow-1"><i class="fa-solid fa-list-check fa-3x text-center"></i></div>
+                </div>
+                <div class="card d-flex card-border-4 box-shadow">
+                    <div class="text p-2 flex-grow-2">
+                        Requests<br><br>
+                        <span style="font-weight: 600;">26</span>
+                    </div>
+                    <div class="icon d-flex justify-content-center align-items-center flex-grow-1"><i class="fa-solid fa-comments fa-3x text-center"></i></div>
+                </div>
+            </div>
+            <!-- 카드 영역 -->
+
+
+            <!-- 통계 영역 -->
+            <div class="p-3 d-grid custom-grid">
+                <div class="overview box-shadow grid-stats">
+                    <p class="p-1 border-bottom m-0">Earnings overview</p>
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="tasks box-shadow grid-side">
+                    <p class="p-1 border-bottom m-0">Tasks</p>
+                    <ul class="bg-white p-1 m-0">
+                        <li class="border-top p-1 pe-3 border-bottom">Borrowed Items</li>
+                        <li class="border-top p-1 pe-3 border-bottom">Trello requests</li>
+                        <li class="border-top p-1 pe-3">Marked Comments</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 통계 영역 -->
+
+        </div>
+        <!-- 컨텐츠 영역 -->
+        
+    </div>
+    <div style="clear: both;"></div>
+    <!-- 전체 컨텐츠 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: '#494cb4',
+                    borderColor: '#5256d3',
+                    borderWidth: 1,
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
