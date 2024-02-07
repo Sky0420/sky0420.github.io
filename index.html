@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="modal" class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form action="success.html">
+                <div class="my-3">
+                    <input type="text" class="form-control" id="id">
+                </div>
+                <div class="my-3">
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form>
+        </div>
+    </div>
+    <button class="open">Modal</button>
+    <div style="margin-bottom: 100px;"></div>
+
+    <span class="badge bg-dark" id="darkMode">Dark 🔄</span>
+
+
+
+
+    <div class="alert alert-danger">
+        <span id="timer">Time</span>초 이내 구입 시 생존
+    </div>
+
+
+    <div style="overflow: hidden;">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="../javascriptStudy/images/car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="../javascriptStudy/images/car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="../javascriptStudy/images/car3.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div style="margin: 20px; display: flex; justify-content: center; align-items: center; gap: 30px;">
+        <button class="slide-1">1</button>
+        <button class="slide-2">2</button>
+        <button class="slide-3">3</button>
+    </div>
+
+    <button class="left-slide">왼</button>
+    <button class="right-slide">오</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $('.open').on('click', function () {
+            $('#modal').addClass('show');
+            $('.white-bg').addClass('white-bg-ani')
+        })
+
+        $('#close').on('click', function () {
+            $('#modal').removeClass('show')
+            $('.white-bg').removeClass('white-bg-ani')
+        })
+
+        $('#submit').on('click', function (e) {
+            var id = document.getElementById('id').value;
+            var pwd = document.getElementById('pwd').value;
+
+            if (id == '') {
+                alert('아이디를 입력하세요.');
+                e.preventDefault();
+            } else if (pwd == '') {
+                alert('비밀번호를 입력하세요.')
+                e.preventDefault();
+            } else if (!/\S+@\S+.\S+/.test(id)) {
+                alert('이메일 형식이 아닙니다.')
+                e.preventDefault();
+            } else if (pwd.length >= 1
+            && pwd.length < 6) {
+                alert('비밀번호는 최소 6자입니다.')
+                e.preventDefault();
+            } else if (!/[A-Z]/.test(pwd)) {
+                alert('비밀번호는 최소 1개의 대문자가 포함되어 있어야 합니다.')
+                e.preventDefault();
+            }
+            
+          
+
+            
+        })
+
+        var count = 0;
+
+        $('#darkMode').on('click', function(){
+            count += 1;
+
+            if (count % 2 == 1) {
+                $('#darkMode').html('Light 🔄');
+                $('#darkMode').removeClass('bg-dark');
+                $('#darkMode').css('color', 'black');
+            } else if (count % 2 == 0) {
+                $('#darkMode').html('Dark 🔄');
+                $('#darkMode').addClass('bg-dark');
+                $('#darkMode').css('color', 'white')
+            }
+        })
+
+
+        var timer = 5;
+        
+
+        function countdown(){
+            $('#timer').html(timer)
+            timer -= 1;
+            if (timer == -1) {
+                $('.alert').hide()
+            }
+        }
+
+        setInterval(countdown,1000)
+       
+
+        $('.slide-1').on('click', function(){
+            $('.slide-container').css('transform', 'translateX(0vw)')
+        })
+
+        $('.slide-2').on('click', function(){
+            $('.slide-container').css('transform', 'translateX(-100vw)')
+        })
+
+        $('.slide-3').on('click', function(){
+            $('.slide-container').css('transform', 'translateX(-200vw)')
+        })
+
+        var currentPhoto = 1;
+
+        $('.right-slide').on('click', function(){
+            if (currentPhoto == 1) {
+                currentPhoto += 1;
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+            } else if ( currentPhoto == 2) {
+                currentPhoto += 1;
+                $('.slide-container').css('transform', 'translateX(-200vw)');
+            } else if (currentPhoto == 3) {
+                alert('마지막 사진입니다.')
+            }
+        })
+
+        $('.left-slide').on('click', function(){
+            if (currentPhoto == 1) {
+                alert('첫번째 사진입니다.')
+            } else if ( currentPhoto == 2) {
+                currentPhoto -= 1;
+                $('.slide-container').css('transform', 'translateX(0vw)');
+            } else if (currentPhoto == 3) {
+                currentPhoto -= 1;
+                $('.slide-container').css('transform', 'translateX(-100 vw)');
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
