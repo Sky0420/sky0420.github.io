@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+
+.navbar {
+    margin: 10px;
+}
+
+.search {
+    margin: auto;
+    width: 50vw;
+}
+
+.cart {
+    color: white;
+    background: #554646;
+    height: 700px;
+}
+
+.dropOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
